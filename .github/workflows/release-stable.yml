@@ -47,7 +47,7 @@ jobs:
             matrix:
                 os: [ubuntu-latest, windows-latest] # , macOS-latest doesn't work for some reason
                 java: [ '15.0.0' ]
-                fail-fast: false
+            fail-fast: false
         name: Build and publish ${{ matrix.os }}
         steps:
             - name: Git checkout
@@ -92,7 +92,7 @@ jobs:
         strategy:
             matrix:
                 java: [ '15.0.0' ]
-                fail-fast: false
+            fail-fast: false
         name: upload jar and app-image
         steps:
             - name: Git checkout
