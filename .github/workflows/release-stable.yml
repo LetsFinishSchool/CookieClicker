@@ -35,10 +35,10 @@ jobs:
               uses: ncipollo/release-action@v1
               with:
                 token: ${{ secrets.GITHUB_TOKEN }}
-                name: release ${{ github.event.inputs.version }} --- ${{ steps.current-time.outputs.formattedTime }}
-                tag: ${{ github.event.inputs.version }}
+                name: release ${{ steps.previoustag.outputs.tag }} --- ${{ steps.current-time.outputs.formattedTime }}
+                tag: ${{ steps.previoustag.outputs.tag }}
                 body: |
-                    ![GitHub release (by tag)](https://img.shields.io/github/downloads/LetsFinishSchool/CookieClicker/${{ github.event.inputs.version }}/total)
+                    ![GitHub release (by tag)](https://img.shields.io/github/downloads/LetsFinishSchool/CookieClicker/${{ steps.previoustag.outputs.tag }}/total)
                     ${{ steps.split.outputs._0}}
     build:
         needs: create-release
