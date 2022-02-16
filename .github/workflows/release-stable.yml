@@ -24,7 +24,7 @@ jobs:
               uses: juliangruber/read-file-action@v1
               id: changelog
               with:
-              path: ./changelog.md
+                path: ./changelog.md
             - name: Split Changelog
               id: split
               uses: rishabhgupta/split-by@v1
