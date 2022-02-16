@@ -106,16 +106,16 @@ jobs:
             - name: Verify Gradle Wrapper
               uses: gradle/wrapper-validation-action@v1
             - name: Execute build
-              run: ./gradlew --info --stacktrace build
+              run: ./gradlew --info --stacktrace :desktop:build
             - name: Execute runtime
-              run: ./gradlew --info --stacktrace runtime
+              run: ./gradlew --info --stacktrace :desktop:runtime
             - name: Execute jpackage
-              run: ./gradlew --info --stacktrace jpackage
+              run: ./gradlew --info --stacktrace :desktop:jpackage
             - name: Upload Jar as an artifact
               uses: softprops/action-gh-release@v1
               with:
-                files: build/libs/*.jar
+                files: desktop/build/libs/*.jar
             - name: Upload App Images as an artifact
               uses: softprops/action-gh-release@v1
               with:
-                files: build/distributions/*
+                files: desktop/build/distributions/*
