@@ -121,12 +121,12 @@ jobs:
                 files: desktop/build/distributions/*
     android:
         needs: create-release
-        runs-on: ubuntu:latest
+        runs-on: ubuntu-latest
         name: Build, Sign and Upload Android apk
         steps:
             - name: git checkout
               uses: actions/checkout@v2
-            - name: Ste up JDK
+            - name: Set up JDK
               uses: actions/setup-java@v2
               with:
                 java-version: 11
