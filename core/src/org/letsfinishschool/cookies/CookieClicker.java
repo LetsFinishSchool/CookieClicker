@@ -43,7 +43,6 @@ public class CookieClicker extends Game {
 
     @Override
     public void create() {
-        Gdx.graphics.setFullscreenMode(Gdx.graphics.getDisplayMode());
         stage = new Stage();
         Gdx.input.setInputProcessor(stage);
 
