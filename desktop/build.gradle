@@ -42,6 +42,7 @@ dist.dependsOn classes
 
 eclipse.project.name = appName + "-desktop"
 
+// Set BADASS_RUNTIME_JPACKAGE_HOME to point to a jdk that provides jpackage tool
 runtime {
     options = ['--strip-debug',
                '--compress', '2',
@@ -64,5 +65,8 @@ runtime {
         } else if (osName.contains('mac')) {
             imageOptions = ["--icon", file("../icons/icon.icns")]
         }
+        installerName = "Cookie-Clicker-Installer-${project.version}"
+        imageName = "Cookie-Clicker-Image-${project.version}"
+        appVersion = "${project.version}"
     }
 }
