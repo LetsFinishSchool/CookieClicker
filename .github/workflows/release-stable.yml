@@ -130,18 +130,20 @@ jobs:
               uses: actions/setup-java@v1
               with:
                 java-version: 11
-            - name: Setup up NDK 20 # NDk above that don't work and github actions installs only above versions
-              uses: nttld/setup-ndk@v1
-              id: setup-ndk
-              with:
-                ndk-version: r20
-            - name: Set android sdk home in local.properties
-              uses: DamianReeves/write-file-action@v1.0
-              with:
-                path: ./local.properties
-                contents: sdk.dir=${{ steps.setup-ndk.outputs.ndk-path }}
-            - name: Echo NDK Home
-              run: echo ${{ steps.setup-ndk.outputs.ndk-path }}
+            #- name: Setup up NDK 20 # NDk above that don't work and github actions installs only above versions
+            #  uses: nttld/setup-ndk@v1
+            #  id: setup-ndk
+            #  with:
+            #    ndk-version: r20
+            #- name: Set android sdk home in local.properties
+            #  uses: DamianReeves/write-file-action@v1.0
+            #  with:
+            #    path: ./local.properties
+            #    contents: sdk.dir=${{ steps.setup-ndk.outputs.ndk-path }}
+            #- name: Echo NDK Home
+            #  run: echo ${{ steps.setup-ndk.outputs.ndk-path }}
+            - name: Accept android license
+              run: yes | ~/Android/Sdk/tools/bin/sdkmanager --licenses
             - name: Echo JAVA_HOME
               run: echo $JAVA_HOME
             - name: Verify Gradle Wrapper
