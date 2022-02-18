@@ -142,8 +142,8 @@ jobs:
             #    contents: sdk.dir=${{ steps.setup-ndk.outputs.ndk-path }}
             #- name: Echo NDK Home
             #  run: echo ${{ steps.setup-ndk.outputs.ndk-path }}
-            - name: Accept android license
-              run: yes | sdkmanager --licenses
+            - name: Setup Android SDK
+              uses: android-actions/setup-android@v2
             - name: Echo JAVA_HOME
               run: echo $JAVA_HOME
             - name: Verify Gradle Wrapper
