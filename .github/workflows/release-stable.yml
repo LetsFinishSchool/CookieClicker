@@ -135,14 +135,19 @@ jobs:
               id: setup-ndk
               with:
                 ndk-version: r20
+            - name: Set android sdk home in local.properties
+              uses: DamianReeves/write-file-action@v1
+              with:
+                path: ./local.properties
+                contents: sdk.dir=${{ steps.setup-ndk.outputs.ndk-path }}
+            - name: Echo NDK Home
+              run: echo ${{ steps.setup-ndk.outputs.ndk-path }}
             - name: Echo JAVA_HOME
               run: echo $JAVA_HOME
             - name: Verify Gradle Wrapper
               uses: gradle/wrapper-validation-action@v1
             - name: Build apk
               run: ./gradlew --info --stacktrace :android:assembleRelease
-              env:
-                ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
             - name: Sign apk
               uses: r0adkll/sign-android-release@v1
               id: sign_app
