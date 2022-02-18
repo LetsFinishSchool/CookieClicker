@@ -130,12 +130,18 @@ jobs:
               uses: actions/setup-java@v1
               with:
                 java-version: 11
+            - name: Setup up NDK 20 # NDk above that don't work and github actions installs only above versions
+              id: setup-ndk
+              with:
+                ndk-version: 20.1.5948944
             - name: Echo JAVA_HOME
               run: echo $JAVA_HOME
             - name: Verify Gradle Wrapper
               uses: gradle/wrapper-validation-action@v1
             - name: Build apk
               run: ./gradlew --info --stacktrace :android:assembleRelease
+              env:
+                ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
             - name: Sign apk
               uses: r0adkll/sign-android-release@v1
               id: sign_app
