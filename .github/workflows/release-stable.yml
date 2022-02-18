@@ -46,16 +46,16 @@ jobs:
         strategy:
             matrix:
                 os: [ubuntu-latest, windows-latest , macOS-latest] # doesn't work for some reason
-                java: [ '14.0.0' ]
             fail-fast: false
         name: Build and publish ${{ matrix.os }}
         steps:
             - name: Git checkout
               uses: actions/checkout@v2
             - name: Set up JDK
-              uses: actions/setup-java@v1
+              uses: actions/setup-java@v2
               with:
-                java-version: ${{ matrix.java }}
+                java-version: '14'
+                distribution: 'temurin'
             - name: Echo JAVA_HOME
               run: echo $JAVA_HOME
             - name: Verify Gradle Wrapper
@@ -89,10 +89,6 @@ jobs:
     jar:
         needs: create-release
         runs-on: ubuntu-latest
-        strategy:
-            matrix:
-                java: [ '15.0.0' ]
-            fail-fast: false
         name: upload jar and app-image
         steps:
             - name: Git checkout
@@ -100,7 +96,7 @@ jobs:
             - name: Set up JDK
               uses: actions/setup-java@v1
               with:
-                java-version: ${{ matrix.java }}
+                java-version: '15.0.0'
             - name: Echo JAVA_HOME
               run: echo $JAVA_HOME
             - name: Verify Gradle Wrapper
