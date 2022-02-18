@@ -134,7 +134,7 @@ jobs:
               uses: nttld/setup-ndk@v1
               id: setup-ndk
               with:
-                ndk-version: 20.1.5948944
+                ndk-version: r20
             - name: Echo JAVA_HOME
               run: echo $JAVA_HOME
             - name: Verify Gradle Wrapper
