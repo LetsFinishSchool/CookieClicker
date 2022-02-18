@@ -136,7 +136,7 @@ jobs:
               with:
                 ndk-version: r20
             - name: Set android sdk home in local.properties
-              uses: DamianReeves/write-file-action
+              uses: DamianReeves/write-file-action@v1.0
               with:
                 path: ./local.properties
                 contents: sdk.dir=${{ steps.setup-ndk.outputs.ndk-path }}
