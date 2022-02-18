@@ -54,7 +54,7 @@ jobs:
             - name: Set up JDK
               uses: actions/setup-java@v2
               with:
-                java-version: '15'
+                java-version: '14'
                 distribution: 'zulu'#use zulu because temurin doesn't support java 15
                 cache: 'gradle'
             - name: Echo JAVA_HOME
@@ -97,7 +97,7 @@ jobs:
             - name: Set up JDK
               uses: actions/setup-java@v2
               with:
-                java-version: '15'
+                java-version: '14'
                 distribution: 'zulu'#use zulu because temurin doesn't support java 15
                 cache: 'gradle'
             - name: Echo JAVA_HOME
