@@ -131,6 +131,7 @@ jobs:
               with:
                 java-version: 11
             - name: Setup up NDK 20 # NDk above that don't work and github actions installs only above versions
+              uses: nttld/setup-ndk@v1
               id: setup-ndk
               with:
                 ndk-version: 20.1.5948944
