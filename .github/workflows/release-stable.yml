@@ -54,7 +54,7 @@ jobs:
             - name: Set up JDK
               uses: actions/setup-java@v2
               with:
-                java-version: '14.0.0'
+                java-version: '16.0.2'
                 distribution: 'temurin'
                 cache: 'gradle'
             - name: Echo JAVA_HOME
@@ -97,7 +97,7 @@ jobs:
             - name: Set up JDK
               uses: actions/setup-java@v2
               with:
-                java-version: '14.0.0'
+                java-version: '16.0.2'
                 distribution: 'temurin'
                 cache: 'gradle'
             - name: Echo JAVA_HOME
