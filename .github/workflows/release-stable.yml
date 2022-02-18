@@ -130,6 +130,8 @@ jobs:
               uses: actions/setup-java@v1
               with:
                 java-version: 11
+            - name: Setup Android SDK
+              uses: android-actions/setup-android@v2
             - name: Prepare NDK dir for caching ( workaround for https://github.com/actions/virtual-environments/issues/1337 )
               run: |
                   sudo mkdir -p /usr/local/lib/android/sdk/ndk
@@ -144,8 +146,6 @@ jobs:
             - name: Install NDK
               if: steps.ndk-cache.outputs.cache-hit != 'true'
               run: echo "y" | sudo /usr/local/lib/android/sdk/tools/bin/sdkmanager --install "ndk;20.1.5948944"
-            - name: Setup Android SDK
-              uses: android-actions/setup-android@v2
             - name: Echo JAVA_HOME
               run: echo $JAVA_HOME
             - name: Verify Gradle Wrapper
